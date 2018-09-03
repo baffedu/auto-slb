@@ -6,7 +6,7 @@ services:
   # -v /srv/nginx/conf.d/custom_proxy_settings.conf:/etc/nginx/conf.d/custom_proxy_settings.conf 
   # -v /srv/nginx/certs:/etc/nginx/certs:ro -d jwilder/nginx-proxy:alpine
   proxy:
-    image: jwilder/nginx-proxy:latest
+    image: jwilder/nginx-proxy:alpine
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ${CERTS_PATH}:/etc/nginx/certs:ro
