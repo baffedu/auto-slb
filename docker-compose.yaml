@@ -1,0 +1,22 @@
+version: "3.3"
+
+services:
+  # docker run --name nginx-proxy -p 80:80 -p 443:443 
+  # -v /var/run/docker.sock:/tmp/docker.sock:ro 
+  # -v /srv/nginx/conf.d/custom_proxy_settings.conf:/etc/nginx/conf.d/custom_proxy_settings.conf 
+  # -v /srv/nginx/certs:/etc/nginx/certs:ro -d jwilder/nginx-proxy:alpine
+  nginx-proxy: 
+    image: jwilder/nginx-proxy:latest
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./certs:/etc/nginx/certs:ro
+      - ./conf.d/custom_proxy_settings.conf:/etc/nginx/conf.d/custom_proxy_settings.conf
+    ports:
+      - "80:80"
+      - "443:443"
+
+
+networks: 
+  default:
+    external:
+      name: baffedu
