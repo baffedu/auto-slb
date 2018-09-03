@@ -5,7 +5,7 @@ services:
   # -v /var/run/docker.sock:/tmp/docker.sock:ro 
   # -v /srv/nginx/conf.d/custom_proxy_settings.conf:/etc/nginx/conf.d/custom_proxy_settings.conf 
   # -v /srv/nginx/certs:/etc/nginx/certs:ro -d jwilder/nginx-proxy:alpine
-  nginx-proxy: 
+  proxy:
     image: jwilder/nginx-proxy:latest
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
@@ -15,7 +15,7 @@ services:
       - "80:80"
       - "443:443"
 
-
+# docker network create --driver=bridge --subnet=10.50.0.0/16 baffedu
 networks: 
   default:
     external:
