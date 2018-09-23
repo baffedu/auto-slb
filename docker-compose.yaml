@@ -9,8 +9,9 @@ services:
     image: jwilder/nginx-proxy:alpine
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ${CERTS_PATH}:/etc/nginx/certs:ro
-      - ./conf.d/custom_proxy_settings.conf:/etc/nginx/conf.d/custom_proxy_settings.conf
+      - ${NGINX_PATH}/certs:/etc/nginx/certs:ro
+      - ${NGINX_PATH}/vhost.d:/etc/nginx/vhost.d:ro
+      - ${NGINX_PATH}/conf.d/custom_proxy_settings.conf:/etc/nginx/conf.d/custom_proxy_settings.conf
     ports:
       - "80:80"
       - "443:443"
