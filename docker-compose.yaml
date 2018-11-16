@@ -11,7 +11,7 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ${NGINX_PATH}/certs:/etc/nginx/certs:ro
       - ${NGINX_PATH}/vhost.d:/etc/nginx/vhost.d:ro
-      - ${NGINX_PATH}/conf.d:/etc/nginx/conf.d:ro
+      - ${NGINX_PATH}/conf.d:/etc/nginx/conf.d
     ports:
       - "80:80"
       - "443:443"
