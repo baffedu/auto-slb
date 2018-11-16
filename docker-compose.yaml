@@ -16,7 +16,7 @@ services:
       - "80:80"
       - "443:443"
     environment:
-      - VIRTUAL_HOST=${NGINX_DEFAULT_HOST}
+      - DEFAULT_HOST=${NGINX_DEFAULT_HOST}
 
 # docker network create --driver=bridge --subnet=10.50.0.0/16 baffedu
 networks:
