@@ -1,4 +1,4 @@
 *
 !.gitignore
-!customer_proxy_setting.conf
 !gzip.conf
+!optimize.conf
