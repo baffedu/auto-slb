@@ -9,14 +9,21 @@ services:
     image: jwilder/nginx-proxy:alpine
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ${NGINX_PATH}/certs:/etc/nginx/certs:ro
-      - ${NGINX_PATH}/vhost.d:/etc/nginx/vhost.d:ro
-      - ${NGINX_PATH}/conf.d:/etc/nginx/conf.d
+      - master-certs:/etc/nginx/certs:ro
+      - master-vhost.d:/etc/nginx/vhost.d:ro
+      - master-conf.d:/etc/nginx/conf.d
+      - master-dhparam:/etc/nginx/dhparam
     ports:
       - "80:80"
       - "443:443"
     environment:
       - DEFAULT_HOST=${NGINX_DEFAULT_HOST}
+
+volumes:
+  master-certs:
+  master-vhost.d:
+  master-conf.d:
+  master-dhparam:
 
 # docker network create --driver=bridge --subnet=10.50.0.0/16 baffedu
 networks:
